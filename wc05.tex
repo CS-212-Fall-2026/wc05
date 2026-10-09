@@ -1,0 +1,62 @@
+\documentclass[a4paper]{exam}
+
+\usepackage{amsmath,amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{wasysym}
+
+\usepackage{xcolor}
+\usepackage{wasysym}
+
+
+\usepackage{tikz}
+\usepackage{tikz-qtree}
+
+
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+\title{Weekly Challenge 05: Context-Free Languages}
+\author{CS 212 Nature of Computation\\Habib University}
+\date{Fall 2026}
+
+\boxedpoints
+
+\newcommand{\prob}{\textsc{oracle-3-sat}} % Use this command to typeset the oracle-3-sat problem.
+
+% \printanswers % Uncomment this line
+
+\begin{document}
+\maketitle
+
+
+\begin{questions}
+    \question For a language $L \subseteq \Sigma^*$ and a function $f: L \to \Sigma^*$ an oracle is a magic machine $O$ that on given input $x \in L$ outputs $f(x)$. We do not need to concern with how $O$ works, it just works. 
+
+    A boolean variable $x$ is a variable that can have two values, \textbf{True} (represented as $1$) or \textbf{False} (represented as $0$). A boolean literal is either a boolean variable or its complement, if $x$ is a boolean variable, then the literals are $x$ and $\neg x$. A boolean formula is a formula consisting of boolean variables and logical connectives ($\land$, $\lor$, $\neg$). A formula is said to be in \href{https://en.wikipedia.org/wiki/Conjunctive_normal_form}{conjunctive normal form} if it contains clauses which is a series of literals connected by logical disjunction $\lor$ and those clauses are connected by logical conjunction. A formula is said to be in 3 conjunctive normal form or 3CNF for short if each clause contains at most three literals. An example of a formula in 3CNF can be, $\phi = (x \lor \neg x \lor y) \land (\neg y \lor \neg x) \land (z \lor \neg y \lor \neg z) \land (x)$. The satisfying assignment to $\phi$ is a valid truth assignment to literals of $\phi$ such that $\phi$ evaluates to to \textbf{True} (1). If there exists a satisfying assignment of $\phi$ then $\phi$ is said to be satisfiable.
+
+    Let $L = \{\phi \in \{u,0,1,(,),\land, \lor, \neg\}^*|$ $\phi$ is a boolean formula in 3CNF$\}$. Now we define the infamous computational problem called \href{https://en.wikipedia.org/wiki/Boolean_satisfiability_problem}{$\textsc{3-sat}$} as, $\textsc{3-sat} = \{\phi \in L|$ $\phi$ is $\phi$ is satisfiable$\}$. 
+    With this consider the function $f:\textsc{3-sat} \to \{u,0,1,(,),\land, \lor, \neg\}^*$ such that for $\phi \in \textsc{3-sat}$, $f(\phi)$ is the satisfying assignment of $\phi$. What $f$ does is take a boolean expression in $3CNF$ form and replace its variables with the satisfying truth assignment (if there exists one), so the expression evaluates to true.
+    
+    Now suppose we have an oracle for $f$, with this we construct a new language $\prob = \{f(\phi) | \; \phi \in \textsc{3-sat}\}$.
+    
+    Prove or disprove the following claim: $\prob$ is context free.
+    
+    \begin{solution}
+        % Enter your solution here.
+    \end{solution}
+
+
+\end{questions}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+
+
